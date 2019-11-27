@@ -1,6 +1,6 @@
 import argparse
 
-import draw
+from draw import draw_loop
 from patterns import patterns
 
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    draw.draw_loop(
+    draw_loop(
         board=patterns[args.pattern]["seed"],
         board_size=patterns[args.pattern]["size"],
         freq=args.frequency,
