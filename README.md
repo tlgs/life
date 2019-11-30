@@ -6,14 +6,28 @@
 Inspired by
 [Jack Diederich's 2012 PyCon talk](https://www.youtube.com/watch?v=o9pEzgHorH0).
 
+## Patterns
+
+| name                | type       |
+|---------------------|------------|
+| block               | Still life |
+| beacon              | Oscillator |
+| blinker             | Oscillator |
+| Kok's galaxy        | Oscillator |
+| toad                | Oscillator |
+| glider              | Spaceship  |
+| Gosper's glider gun | Gun        |
+
 ## Example usage
 
 ```console
 $ python life.py --help
-usage: life.py [-h] [-f freq] {glider,block,blinker,toad,beacon,Kok's galaxy}
+usage: life.py [-h] [-f freq]
+               {block,beacon,blinker,Kok's galaxy,toad,glider,Gosper's glider
+               gun}
 
 positional arguments:
-  {glider,block,blinker,toad,beacon,Kok's galaxy}
+  {block,beacon,blinker,Kok's galaxy,toad,glider,Gosper's glider gun}
                         pattern to produce
 
 optional arguments:
