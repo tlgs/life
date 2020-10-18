@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Major Mono Display';
+  src: url('MajorMonoDisplay-Regular.ttf');
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Major Mono Display', monospace;
+  margin-bottom: 2em;
+}
+
+canvas {
+  margin: auto;
+  display: block;
+}

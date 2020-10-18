@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="static/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>Game of Life</h1>
+    <canvas id="grid" width="600px" height="600px"></canvas>
+    <script src="static/life.js"></script>
+    <script>
+        let board = new Set();
+        for (let i = 0; i < 150; i++) {
+            board.add(Math.floor(Math.random() * 30) * 100 + Math.floor(Math.random() * 30));
+        }
+
+        function draw() {
+            let ctx = document.getElementById('grid').getContext('2d');
+            ctx.clearRect(0, 0, 600, 600);
+
+            for (const cell of board) {
+                ctx.beginPath();
+                ctx.arc((cell % 100) * 20 + 10, Math.floor(cell / 100) * 20 + 10, 8, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            board = tick(board);
+        }
+
+        window.setInterval(draw, 500);
+    </script>
+  </body>
+</html>
