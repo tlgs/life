@@ -11,7 +11,7 @@
     <script src="static/life.js"></script>
     <script>
         let board = new Set();
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < Math.random() * 101 + 100; i++) {
             board.add(Math.floor(Math.random() * 30) * 100 + Math.floor(Math.random() * 30));
         }
 
