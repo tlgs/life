@@ -6,9 +6,11 @@ Inspired by
 This is a refactor of a previous Python solution
 using vanilla JavaScript and the HTML `<canvas>` API.
 
-The initial configuration is random.
-Simulation frequency is set at 5Hz.
-The underlying solution represents a cell's coordinates as a single integer;
+## Notes
+
+- The initial configuration is random.
+- Simulation frequency is set at 5Hz.
+- The underlying solution represents a cell's coordinates as a single integer;
 this imposes a limit on the range of usable values.
 
 ## Resources
