@@ -28,3 +28,45 @@ function tick(board) {
 
     return nextBoard
 }
+
+function draw() {
+    let ctx = document.getElementById('grid').getContext('2d');
+
+    // clear canvas
+    ctx.clearRect(0, 0, 600, 600);
+
+    // draw grid
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.04)';
+    for (let i = 0; i < 31; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, i * 20);
+        ctx.lineTo(600, i * 20);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(i * 20, 0);
+        ctx.lineTo(i * 20, 600);
+        ctx.stroke();
+    }
+
+    // draw every cell
+    for (const cell of board) {
+        ctx.beginPath();
+        ctx.arc((cell % 100) * 20 + 10, Math.floor(cell / 100) * 20 + 10, 8, 0, 2 * Math.PI);
+        ctx.fillStyle = prev.has(cell) ? 'steelblue' : 'lightsteelblue';
+        ctx.fill();
+    }
+
+    // update to next generation
+    prev = board;
+    board = tick(board);
+}
+
+// initialize random population
+let board = new Set();
+let prev = board;
+for (let i = 0; i < Math.random() * 101 + 150; i++) {
+    board.add(Math.floor(Math.random() * 30) * 100 + Math.floor(Math.random() * 30));
+}
+
+window.setInterval(draw, 200);
