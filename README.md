@@ -1,19 +1,18 @@
 # Conway's Game of Life
 
+Implementation of Conway's Game of Life using vanilla JavaScript
+and the HTML `<canvas>` API.
+Hosted [here](https://tlgs.github.io/life) using GitHub Pages.
+
+The focus of the application in on the world engine and not its graphical
+representation; expect no extra _flavorful_ features.
+
+The initial world state is random - refresh the page to generate a new one.
+
 Inspired by
 [Jack Diederich's 2012 PyCon talk](https://www.youtube.com/watch?v=o9pEzgHorH0).
 
-This is a refactor of a previous Python solution
-using vanilla JavaScript and the HTML `<canvas>` API.
-
-## Notes
-
-- The initial configuration is random.
-- Simulation frequency is set at 5Hz.
-- The underlying solution represents a cell's coordinates as a single integer;
-this imposes a limit on the range of usable values.
-
-## Resources
+## Useful References
 
 - [Conway's Game of Life (Wikipedia)](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
-- [Canvas API (Mozilla)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+- [Canvas API (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
