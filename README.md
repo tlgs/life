@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-See [demo](tlgs.github.io/life).
+See [demo](https://tlgs.github.io/life).
 
 Implementation of Conway's Game of Life using vanilla JavaScript
 and the HTML `<canvas>` API.
