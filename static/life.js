@@ -1,4 +1,17 @@
-// cell = 100 * y + x
+/**
+ * @file Conway's Game of Life engine logic,
+ * as well as the `canvas` manipulation.
+ *
+ * JavaScript does not have a built-in immutable collection
+ * data structure (tuple) to represent a cell, so a single integer is used:
+ * x + 100 * y. This inherently restricts the board size.
+ *
+ * The focus of this file (and project) is on the Game of Life logic
+ * (the `tick` function) and not on the graphical component;
+ * as such, features such as refresh rate and cell colours are hard-coded.
+ */
+
+/** Yield all the neighbors of a cell. */
 function* neighbors(x) {
     yield x - 1;
     yield x + 1;
@@ -10,6 +23,7 @@ function* neighbors(x) {
     yield x + 99;
 }
 
+/** Generate the next board state according to the game's rules. */
 function tick(board) {
     let calc = new Set(board);
     for (const cell of board) {
@@ -29,10 +43,13 @@ function tick(board) {
     return nextBoard
 }
 
+/**
+ * Handle all of the DOM manipulation logic to reflect the board's state.
+ * It is the function that is repeatedly called by `window.setInterval()`.
+ */
 function draw() {
     let ctx = document.getElementById('grid').getContext('2d');
 
-    // clear canvas
     ctx.clearRect(0, 0, 600, 600);
 
     // draw grid
@@ -49,7 +66,6 @@ function draw() {
         ctx.stroke();
     }
 
-    // draw every cell
     for (const cell of board) {
         ctx.beginPath();
         ctx.arc((cell % 100) * 20 + 10, Math.floor(cell / 100) * 20 + 10, 8, 0, 2 * Math.PI);
@@ -57,12 +73,11 @@ function draw() {
         ctx.fill();
     }
 
-    // update to next generation
     prev = board;
     board = tick(board);
 }
 
-// initialize random population
+
 let board = new Set();
 let prev = board;
 for (let i = 0; i < Math.random() * 101 + 150; i++) {
