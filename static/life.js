@@ -1,14 +1,13 @@
 /**
- * @file Conway's Game of Life engine logic,
- * as well as the `canvas` manipulation.
+ * @file Conway's Game of Life engine and `canvas` manipulation.
  *
- * JavaScript does not have a built-in immutable collection
- * data structure (tuple) to represent a cell, so a single integer is used:
- * x + 100 * y. This inherently restricts the board size.
+ * JavaScript does not have a built-in tuple data structure - this would be the
+ * ideal way to represent a cell. Instead, single integer is used: x + 100 * y.
+ * This inherently restricts the board size.
  *
  * The focus of this file (and project) is on the Game of Life logic
- * (the `tick` function) and not on the graphical component;
- * as such, features such as refresh rate and cell colours are hard-coded.
+ * and not on the graphical component;
+ * as such, features such as refresh rate and cell colors are hard-coded.
  */
 
 /** Yield all the neighbors of a cell. */
