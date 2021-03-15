@@ -53,21 +53,21 @@ function draw() {
 
     // draw grid
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.04)';
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < 61; i++) {
         ctx.beginPath();
-        ctx.moveTo(0, i * 20);
-        ctx.lineTo(600, i * 20);
+        ctx.moveTo(0, i * 10);
+        ctx.lineTo(600, i * 10);
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.moveTo(i * 20, 0);
-        ctx.lineTo(i * 20, 600);
+        ctx.moveTo(i * 10, 0);
+        ctx.lineTo(i * 10, 600);
         ctx.stroke();
     }
 
     for (const cell of board) {
         ctx.beginPath();
-        ctx.arc((cell % 100) * 20 + 10, Math.floor(cell / 100) * 20 + 10, 8, 0, 2 * Math.PI);
+        ctx.arc((cell % 100) * 10 + 5, Math.floor(cell / 100) * 10 + 5, 4, 0, 2 * Math.PI);
         ctx.fillStyle = prev.has(cell) ? 'steelblue' : 'lightsteelblue';
         ctx.fill();
     }
@@ -79,8 +79,8 @@ function draw() {
 
 let board = new Set();
 let prev = board;
-for (let i = 0; i < Math.random() * 101 + 150; i++) {
-    board.add(Math.floor(Math.random() * 30) * 100 + Math.floor(Math.random() * 30));
+for (let i = 0; i < 1200; i++) {
+    board.add(Math.floor(Math.random() * 60) * 100 + Math.floor(Math.random() * 60));
 }
 
-window.setInterval(draw, 200);
+window.setInterval(draw, 100);
