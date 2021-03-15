@@ -2,7 +2,7 @@
  * @file Conway's Game of Life engine and `canvas` manipulation.
  *
  * JavaScript does not have a built-in tuple data structure - this would be the
- * ideal way to represent a cell. Instead, single integer is used: x + 100 * y.
+ * ideal way to represent a cell. Instead, a single integer is used: x + 100 * y.
  * This inherently restricts the board size.
  *
  * The focus of this file (and project) is on the Game of Life logic
