@@ -30,27 +30,25 @@ function* neighbors(x) {
 
 function tick(b) {
   const calc = new Set(b);
-  for (const cell of b) {
-    for (const neighbor of neighbors(cell)) {
+
+  b.forEach((cell) => {
+    [...neighbors(cell)].forEach((neighbor) => {
       calc.add(neighbor);
-    }
-  }
+    });
+  });
 
   const nb = new Set();
-  for (const cell of calc) {
+  calc.forEach((cell) => {
     const alive = [...neighbors(cell)].reduce((acc, x) => acc + b.has(x), 0);
     if (alive === 3 || (b.has(cell) && alive === 2)) {
       nb.add(cell);
     }
-  }
+  });
 
   return nb;
 }
 
-/**
- * Handle all of the DOM manipulation logic to reflect the board's state.
- * It is the function that is repeatedly called by `window.setInterval()`.
- */
+/** Handle all of the DOM manipulation logic to reflect the board's state. */
 function draw() {
   const ctx = document.getElementById('grid').getContext('2d');
 
@@ -70,12 +68,12 @@ function draw() {
     ctx.stroke();
   }
 
-  for (const cell of board) {
+  board.forEach((cell) => {
     ctx.beginPath();
     ctx.arc((cell % 100) * 10 + 5, Math.floor(cell / 100) * 10 + 5, 4, 0, 2 * Math.PI);
     ctx.fillStyle = prev.has(cell) ? 'steelblue' : 'lightsteelblue';
     ctx.fill();
-  }
+  });
 
   prev = board;
   board = tick(board);
