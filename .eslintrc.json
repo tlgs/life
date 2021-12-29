@@ -10,5 +10,6 @@
         "ecmaVersion": 12
     },
     "rules": {
+	"import/extensions": 1
     }
 }

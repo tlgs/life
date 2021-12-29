@@ -9,6 +9,9 @@
  * and not on the graphical component;
  * as such, features such as refresh rate and cell colors are hard-coded.
  */
+import getColors from './colors.js';
+
+const [normalColor, brightColor] = getColors();
 
 let board = new Set();
 let prev = board;
@@ -71,7 +74,7 @@ function draw() {
   board.forEach((cell) => {
     ctx.beginPath();
     ctx.arc((cell % 100) * 10 + 5, Math.floor(cell / 100) * 10 + 5, 4, 0, 2 * Math.PI);
-    ctx.fillStyle = prev.has(cell) ? 'steelblue' : 'lightsteelblue';
+    ctx.fillStyle = prev.has(cell) ? normalColor : brightColor;
     ctx.fill();
   });
 
