@@ -8,7 +8,7 @@ The initial world state is random - refresh the page to generate a new one.
 
 Inspired by
 [Jack Diederich's 2012 PyCon talk](https://www.youtube.com/watch?v=o9pEzgHorH0).
-Tuples in JavaScript [when?](https://github.com/tc39/proposal-record-tuple).
+Tuples in JavaScript [when?](https://github.com/tc39/proposal-record-tuple)
 
 ## Useful references
 
